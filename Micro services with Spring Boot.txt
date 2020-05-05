@@ -1,0 +1,1066 @@
+Micro Service with Spring Boot
+=================================
+
+7600# passcodes : 984644 or 702509 or 938002
+
+
+PSTN :0-22-67874110  passcode :831108 
+
+
+Online Shopping Application (Domain Driven Development)
+=======================================================
+PL  SL DAL  DL 
+              
+SOAP ->WSDL -> Top Down,Bootm up
+             wsgen -> JAva ->WSDL
+             wsimprt->WSDL  -> Java
+			 
+
+Restful Webservice
+=================
+If you are providing service (CRUD ->Domain Objects) via http urls
+
+GET 
+POST
+PUT/PATCH
+DELETE
+			 
+			 
+Domain Objects (5)
+===================
+Product =>CRUD
+Customer =>CRUD
+Order =>CRUD
+Payment =>CRUD
+User =>CRUD
+
+product-service  (.Net Web MVC) =>A Team   80 ->IIS   =>1 Instance (100 req)
+============================================================================
+http://localhost:8081/online-shopping/products     =>GET
+http://localhost:8081/online-shopping/products/101 =>GET
+http://localhost:8081/online-shopping/products/101 =>DELETE
+http://localhost:8081/online-shopping/products/101 =>PUT
+http://localhost:8081/online-shopping/products     =>POST
+
+customer-service  (Java -Spring Boot)  =>B Team =>  8080
+
+===================================================
+http://localhost:8081/online-shopping/customers     =>GET
+http://localhost:8081/online-shopping/csustomers/101 =>GET
+http://localhost:8081/online-shopping/csustomers/101 =>DELETE
+http://localhost:8081/online-shopping/customers/101 =>PUT
+http://localhost:8081/online-shopping/customers     =>POST
+
+order-service  (Node JS -> Express JS)  => C Team  =>1212
+==================================================
+http://localhost:8081/online-shopping/orders      =>GET
+http://localhost:8081/online-shopping/orders/101 =>GET
+http://localhost:8081/online-shopping/orders/101 =>DELETE
+http://localhost:8081/online-shopping/orders/101 =>PUT
+http://localhost:8081/online-shopping/orders     =>POST
+
+
+
+ online-shopping/product                        product-service  ->  1111 http://localhost:1111/product-service/
+ online-shopping/csutomer                       customer-service ->  2222 http://lo:2222/cosur/
+ online-shopping/order       Eureka Server      order-service    ->  3333
+ online-shopping/payment                        payment-service  ->  4444
+ online-shoppinng/user                          user-service     ->  5555
+
+
+
+
+Day1
+
+https://www.edureka.co/blog/microservice-architecture/
+====
+1.What is MCA?
+================
+Microservices - also known as the microservice architecture - is an architectural style that structures an 
+application as a collection of services that are
+
+	1.Highly maintainable and testable
+	2.Loosely coupled
+	3.Independently deployable
+	4.Organized around single business capabilities. 
+	  (Single Responsibility Principle)
+
+	
+	
+The microservice architecture enables the continuous delivery/deployment of large, complex applications. 
+It also enables an organization to evolve its technology stack.
+
+1.MCA Vs Monolithic
+
+2.Adantages of MCA
+	1.Highly maintainable and testable
+	2.Loosely coupled
+	3.Independently deployable
+	4.Organized around business capabilities.
+        5.Deliverable at early stages
+3.Challanges of MCA
+   1.Avaialabilty  --24 by 7 avail if any service is down how u will amke tht service available how u will come to know which service is down ,
+ that is big cahllenge,monitoring the ms is challenge
+   2.Scaling --base on no of req application shd be scalable ex 1 instance for 1 service is capable of handling 100 request  and we have 1000 request then there will be
+ a  load on service, to avoide the failure we need to add or delete instances.
+   3.Monitoring -logs,loads,heap,memory ->actuator -> Admin Server
+   4.Integration --service integration ex
+
+                                             withdraw(source,amount)
+fundTransfer(source,desitnation,amount)
+                                             deposit(desination,amount)
+
+
+A-B-C-D-E....if any service is not working then rest of the ms will have error . diff to monitor the problems in ms.
+
+
+4.Orchestration and Choreography
+
+
+##########
+What is the difference between Orchestration and Choreography in Microservices architecture?
+################ 
+In Orchestration, we rely on a central system to control and call various Microservices to complete a task.  
+
+In Choreography, each Microservice works like a State Machine and reacts based on the input from other parts. withdrwa --sms is send  
+
+Orchestration is a tightly coupled approach for integrating Microservices.
+
+But Choreography introduces loose coupling. Also, Choreography based systems are more flexible and easy to change than Orchestration based systems.
+
+Orchestration is often done by synchronous calls  one by one . But choreography is done by asynchronous calls. ex 
+The synchronous calls are much simpler compared to asynchronous communication. 
+
+
+
+Difference between webservices amd microservices
+
+
+5.What is TDD,BDD,DDD,Model DD .diff types pf development 
+6.SOLID Design Principles
+7.Design Patterns(creational,Structural,Behavioural)
+8.12 Factor Application
+
+What is DDD?
+=============
+Domain Driven Design is a way of looking at software from top down.
+When we are developing a software our focus should not be primarily on technology,
+It shouuld be primaryly on business or whatever activity we are trying to assist with software,domain
+The domain is the business that we are trying to solve/assist with software.
+The domain can be any business domain
+
+Aviation domain
+Railway domain
+Banking domain
+Insurance domain
+Manufacturing domain
+Ecommerce domain
+
+OnlineShopping
+Domain object are account, product,cart,order and then identify the services for domain objcet 
+accoubt getacc,addacc ,dele acc,update acc
+product-addPro,delPro,getProd,upProd are the services given by that domain object 
+
+Specifically we approach that by trying to develop the models of that domain and make our software confirmed to that.
+
+What DDD gives us? 2 approaches 
+===================
+Strategic Design Tool  top-bottom
+Tactical Design Tools bottom -top start with coding 
+
+
+standalone - jar,war 
+
+Service
+Project
+Layers(Service/Data Access Layer,Controller)
+Modules
+Design Patterns
+OOP
+Classes
+Objects
+Exe/Jar/war/ear
+
+
+
+
+Why We should go for DDD?
+1.	To improve your craft
+2.	As a software developer you want to grow
+3.	You want to take a responsibility
+4.	You want to design things from scratch
+
+
+It’s not a customers job what they want (Steve Jobs)
+What problems this customer is going to face in the future
+If you want to give any new feature it should go from your side
+
+Your architecture might be fabulous but it’s the end user ultimately who decides whether your system is fabulous or not.
+
+A system that doesn’t solve the business needs is of no use to any one, no matter how pretty it looks or how well architected it’s infrastructure.
+
+
+
+S-Single Responsibilty Principle based on this we will be having multiple services for ex account will have multiple microservices ,createAccout,delAccount,
+
+
+           example 
+vois addEmployee()
+{
+Employee e=new Employee();
+Set s=new HashSet();
+s.add(e);
+}
+is nit a SRP as we r doing 2 actions 
+so replace it with
+
+void addEmployee(Employee e,Set s){
+s.add(e);		  
+}
+
+
+
+
+O-Open Close Principle 
+
+
+       Shape
+
+Rect    Circle 	   
+
+          class PaintBrush{
+		  
+		  
+		  drawShape(Shape s){
+		  s.draw();
+		  }
+		  
+		   	  
+		  
+		  }
+
+		  
+  
+		  
+		  
+		  
+		  
+		  
+
+L-Liscovs Substituion Principle
+I-Interface segration principle
+
+interface Flyable{
+void fly();
+}
+
+interface Drivable{
+void drive();
+}
+
+
+              Vehicle 
+
+Bus    Truck    Bike 	 implements Drivable
+Aeroplane    Helicapter   implement Flyable,Drivable		  
+			  
+
+
+
+
+
+D-Dependency Injection
+
+          interface EmployeeInterface{
+           Collection<Employee> getEmployeeList()
+		  }
+
+Actuators-monitor the health of an application.production ready features default is info, health
+
+
+
+
+Admin Server
+==============
+Monitoring your application by using Spring Boot Actuator Endpoint is slightly difficult. 
+we need to start individual end points in pur application for monitoring , Because, if you have ‘n’ number of applications, every application has separate actuator endpoints, thus making monitoring difficult. Spring Boot Admin Server is an application used to manage and monitor your Microservice application.
+
+
+To handle such situations, CodeCentric Team provides a Spring Boot Admin UI to manage and monitor all your Spring Boot application Actuator endpoints at one place.
+instead of monitoring individual ms we can monitor all in one api provided by codecentric. for example for checking health we need o head/heath , for info we need to hit /info, instead of this we can get 1 interface wher we can monitor all end points
+
+
+
+For building a Spring Boot Admin Server we need to add the below dependencies in your build configuration file.
+
+Maven users can add the below dependencies in your pom.xml file -
+
+<dependency>
+   <groupId>de.codecentric</groupId>
+   <artifactId>spring-boot-admin-server</artifactId>
+</dependency>
+<dependency>
+   <groupId>de.codecentric</groupId>
+   <artifactId>spring-boot-admin-server-ui</artifactId>
+</dependency>
+
+
+package com.tutorialspoint.adminserver;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import de.codecentric.boot.admin.config.EnableAdminServer;
+
+@SpringBootApplication
+@EnableAdminServer
+public class AdminserverApplication {   
+   public static void main(String[] args) {
+      SpringApplication.run(AdminserverApplication.class, args);
+   }
+}
+
+
+Spring Boot Admin Client
+========================
+For monitoring and managing your microservice application via Spring Boot Admin Server, you should add the Spring Boot Admin starter client dependency and point out the Admin Server URI into the application properties file.
+
+Note - For monitoring an application, you should enable the Spring Boot Actuator Endpoints for your Microservice application.
+
+First, add the following Spring Boot Admin starter client dependency and Spring Boot starter actuator dependency in your build configuration file.
+
+Maven users can add the following dependencies in your pom.xml file -
+
+<dependency>
+   <groupId>de.codecentric</groupId>
+   <artifactId>spring-boot-admin-starter-client</artifactId>
+</dependency>
+<dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+
+
+
+Now, add the Spring Boot Admin Server URL into your application properties file.
+
+For properties file users, add the following properties in the application.properties file.
+
+server.port=1111
+spring.application.name=hello-service
+spring.boot.admin.client.url=http://localhost:9090
+
+management.endpoints.web.exposure.include=*
+management.endpoints.jmx.exposure.include=*
+
+                                                 web.xml
+
+http://localhost:8080/my-app/hello1   
+http://localhost:8080/my-app/hello2
+http://localhost:8080/my-app/hello3
+
+
+======================================================================Day 2===============================================================
+
+=========================
+The Twelve Factors
+==========================
+          This is best practices to develop spring cloud native applications
+
+I. Codebase
+One codebase tracked in revision control, many deploys
+II. Dependencies
+Explicitly declare and isolate dependencies
+III. Config
+Store config in the environment
+IV. Backing services
+Treat backing services as attached resources
+V. Build, release, run
+Strictly separate build and run stages
+VI. Processes
+Execute the app as one or more stateless processes
+VII. Port binding
+Export services via port binding
+VIII. Concurrency
+Scale out via the process model
+IX. Disposability
+Maximize robustness with fast startup and graceful shutdown
+X. Dev/prod parity
+Keep development, staging, and production as similar as possible
+XI. Logs
+Treat logs as event streams
+XII. Admin processes
+Run admin/management tasks as one-off processes
+
+
+Day 2:
+
+use restful microservices to do the CRUD operations
+
+domain objects --onlineshopping -product user order 
+
+
+
+
+
+Demo 2:
+
+
+Spring Cloud Config Server
+===========================
+Spring Cloud Config provides server and client-side support for externalized configuration in a distributed system. 
+With the Config Server you have a central place to manage external properties for applications across all environments. 
+The concepts on both client and server map identically to the Spring Environment and PropertySource abstractions, 
+so they fit very well with Spring applications, but can be used with any application running in any language.
+As an application moves through the deployment pipeline from dev to test and into production you can manage the configuration between those 
+environments and be certain that applications have everything they need to run when they migrate. 
+The default implementation of the server storage backend uses git so it easily supports labelled versions of
+ configuration environments, as well as being accessible to a wide range of tooling for managing the content. 
+It is easy to add alternative implementations and plug them in with Spring configuration.
+
+
+In Local File system
+======================
+
+By default cloud config server loads the properites file from config folder
+
+In Git
+======
+By default cloud config server loads the properites file from git  repository
+
+To make it to locaal fs
+
+spring.profiles.active=native
+
+
+
+@EnableConfigServer
+@SpringBootApplication
+public class ConfigServerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ConfigServerApplication.class, args);
+	}
+
+}
+
+
+Spring Cloud Config Client
+===========================
+A Spring Boot application can take immediate advantage of the Spring Config Server (or other external property sources provided by the application developer). It also picks up some additional useful features related to Environment change events.
+
+
+7.1 Config First Bootstrap
+===================================
+The default behavior for any application that has the Spring Cloud Config Client on the classpath is as follows:
+ When a config client starts, it binds to the Config Server (through the spring.cloud.config.uri bootstrap configuration property) 
+and initializes Spring Environment with remote property sources.
+
+The net result of this behavior is that all client applications that want to consume the Config Server need a bootstrap.yml (or an environment variable) with the 
+server address set in spring.cloud.config.uri (it defaults to "http://localhost:8888").
+
+
+bootstrap.properties
+=====================
+spring.application.name=config-client
+spring.cloud.config.uri=http://localhost:9090/cloud-server
+spring.profiles.active=dev
+
+
+
+
+
+
+
+ time, you should set property 'eureka.server.peer-node-read-timeout-ms' to a bigger value
+
+Service Oriented Architecture
+==============================
+
+Service Provider (hello-service,greet-service,welcome-service)/hello,/welcome,/greet
+
+Service Consumer ->
+
+Service Registry ->(register the services in service registry)
+Day3 Eureka and zuul 
+server side load balancing and client side load balancing 
+4 applications 
+eureka server regitry-- eureka server,  web,devtools,actuat (service -discovery)
+product service--discovery client,web,devtools,actuat
+order service--discovery client,web,devtools,actuat (api-gateway)
+zuul proxy 
+Eureka Server
+==============
+
+Eureka Server is an application that holds the information about all client-service applications.
+It provides the service discovery and registration.
+Every Micro service will register into the Eureka server and Eureka server knows all the client applications 
+running on each port and IP address. Eureka Server is also known as Discovery Server.
+
+In this chapter, we will learn in detail about How to build a Eureka server.
+
+Building a Eureka Server
+Eureka Server comes with the bundle of Spring Cloud. For this, we need to develop the Eureka server and run it on the default port 8761.
+
+
+After downloading the project in main Spring Boot Application class file, we need to add @EnableEurekaServer annotation. The @EnableEurekaServer annotation is used to make your Spring Boot application acts as a Eureka Server.
+
+The code for main Spring Boot application class file is as shown below -
+
+package com.tutorialspoint.eurekaserver;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+
+@SpringBootApplication
+@EnableEurekaServer
+public class EurekaserverApplication {
+   public static void main(String[] args) {
+      SpringApplication.run(EurekaserverApplication.class, args);
+   }
+}
+Make sure Spring cloud Eureka server dependency is added in your build configuration file.
+
+The code for Maven user dependency is shown below -
+
+<dependency>
+<groupId>org.springframework.cloud</groupId>
+   <artifactId>spring-cloud-starter-eureka-server</artifactId>
+</dependency>
+
+
+Service Registration with Eureka
+===================================
+
+To register the Spring Boot Micro service application into the Eureka Server. Before registering the application, please make sure Eureka Server is running on the port 8761 or first build the Eureka Server and run it. For further information on building the Eureka server, you can refer to the previous chapter.
+
+First, you need to add the following dependencies in our build configuration file to register the microservice with the Eureka server.
+
+Maven users can add the following dependencies into the pom.xml file -
+
+<dependency>
+   <groupId>org.springframework.cloud</groupId>
+   <artifactId>spring-cloud-starter-eureka</artifactId>
+</dependency>
+
+
+Now, we need to add the @EnableEurekaClient annotation in the main Spring Boot application class file. The @EnableEurekaClient annotation makes your Spring Boot application act as a Eureka client.
+
+The main Spring Boot application is as given below -
+
+@SpringBootApplication
+@EnableEurekaClient
+public class EurekaclientApplication {
+   public static void main(String[] args) {
+      SpringApplication.run(EurekaclientApplication.class, args);
+   }
+}
+
+To register the Spring Boot application into Eureka Server we need to add the following configuration in our application.properties file or application.yml file and specify the Eureka Server URL in our configuration.
+
+
+spring.application.name=customer-service
+server.port=1111
+
+eureka.client.register-with-eureka=true
+eureka.client.fetchRegistry=true
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka
+eureka.client.serviceUrl.healthcheck.enabled=true
+
+management.endpoints.web.exposure.include=*
+
+
+Zuul Proxy
+===========
+
+Spring Cloud has created an embedded Zuul proxy to ease the development of a common use case where a UI application 
+wants to make proxy calls to one or more back end services. This feature is useful for a user interface to proxy to the back end services it requires, avoiding the need to manage CORS and authentication concerns independently for all the back ends.
+
+To enable it, annotate a Spring Boot main class with @EnableZuulProxy. Doing so causes local calls to be forwarded to the appropriate service. By convention, a service with an ID of users receives requests from the proxy located at /users (with the prefix stripped). The proxy uses Ribbon to locate an instance to which to forward through discovery. All requests are executed in a hystrix command, so failures appear in Hystrix metrics. Once the circuit is open, the proxy does not try to contact the service.
+
+
+
+eureka-server    :http://localhost:8761 (service registry)
+customer-service :http://localhost:1111 
+product-service  :http://localhost:2222
+
+api-gateway      :http://localhost:8181
+
+Server Side Load balncing
+
+
+      A->B->C->D->E
+
+day4
+=====
+zipkin and hystrix server
+swagger with microservice
+
+
+Most developers face difficulty of tracing logs if any issue occurred. This can be solved by Spring Cloud Sleuth 
+and ZipKin server for Spring Boot application.
+
+Spring Cloud Sleuth
+Spring cloud Sleuth logs are printed in the following format -
+
+[application-name,traceid,spanid,zipkin-export]
+
+Where,
+
+Application-name = Name of the application
+
+Traceid = each request and response traceid is same when calling same service or one service to another service.
+A->B->C->D req1 will have same tracid A->B B->C and C->D will have different Spanid 
+ 
+
+Spanid = Span Id is printed along with Trace Id.
+ Span Id is different every request and response calling one service to another service.
+
+
+
+Zipkin-export = By default it is false. If it is true, logs will be exported to the Zipkin server.
+pobability-->1 will export the logs to zipkin bydefault is 1
+
+Now, add the Spring Cloud Starter Sleuth dependency in your build configuration file as follows -
+
+Maven users can add the following dependency in your pom.xml file -
+
+<dependency>
+   <groupId>org.springframework.cloud</groupId>
+   <artifactId>spring-cloud-starter-sleuth</artifactId>
+</dependency>
+
+account-->carts
+tracid card 
+
+
+What is Distributed Tracing?
+=============================
+Distributed Tracing is crucial for troubleshooting and understanding microservices. 
+It is very useful when we need to track the request passing through multiple microservices. 
+Distributed Tracing can be used to measure the performance of the microservices. 
+It is easy to identify which microservice is failed or having performance issues whenever there are multiple service calls within a single request.
+In this article, you will see how to implement Zipkin Server for Distributed Tracing.
+To achieve this, you need to create Zipkin Server application and add these three dependencies in POM.xml.
+
+ <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+  </dependency>
+	
+
+<dependency>
+  <groupId>io.zipkin.java</groupId>
+  <artifactId>zipkin-server</artifactId>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/io.zipkin.java/zipkin-autoconfigure-ui -->
+<dependency>
+   <groupId>io.zipkin.java</groupId>
+   <artifactId>zipkin-autoconfigure-ui</artifactId>
+</dependency>
+
+
+Internally it has 4 modules –
+
+Collector – Once any component sends the trace data arrives to Zipkin collector daemon, it is validated, stored, and indexed for lookups by the Zipkin collector.
+
+Storage – This module store and index the lookup data in backend. Cassandra, ElasticSearch and MySQL are supported.
+
+Search – This module provides a simple JSON API for finding and retrieving traces stored in backend. The primary consumer of this API is the Web UI.
+
+Web UI – A very nice UI interface for viewing traces.
+
+=======
+Zipkin is very efficient tool for distributed tracing in microservices ecosystem.
+ Distributed tracing, in general, is latency measurement of each component in a distributed transaction where multiple microservices are invoked to serve a single business usecase. Let’s say from our application, we have to call 4 different services/components for a transaction. Here with distributed tracing enabled, we can measure which component took how much time.
+
+This is useful during debugging when lots of underlying systems are involved and the application becomes slow in any particular situation. In such case, we first need to identify see which underlying service is actually slow. Once the slow service is identified, we can work to fix that issue. Distributed tracing helps in identifying that slow component among in the ecosystem.
+
+
+Sleuth
+========
+Sleuth is a tool from Spring cloud family.
+ It is used to generate the trace id, span id and add these information to the service calls in the headers and MDC
+, so that It can be used by tools like Zipkin and ELK etc. to store, index and process log files. As it is from spring cloud family, once added to the CLASSPATH, it automatically integrated to the common communication channels like –
+
+requests made with the RestTemplate etc.
+requests that pass through a Netflix Zuul microproxy
+HTTP headers received at Spring MVC controllers
+requests over messaging technologies like Apache Kafka or RabbitMQ etc.
+Using Sleuth is very easy. We just need to add it’s started pom in the spring boot project. It will add the Sleuth to project and so in its runtime.
+
+
+
+Registering Client Application With Zipkin Server
+
+ <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+  </dependency>
+	
+
+application.properties	
+
+spring.zipkin.base-url=http://localhost:9041
+
+===============================
+Day5
+JMS
+Ribbon Client
+
+JMS with Active MQ:
+12 Factor App:
+
+
+
+
+day8
+=====
+zipkin-server       (zipkin-server,zipkin-autoconfigure-ui,spring-cloud-starter-zipkin)  9041
+product-service =>(sleuth,spring-cloud-starter-zipkin)  2222
+customer-service=>(sleuth,spring-cloud-starter-zipkin)  1111
+greeting-service=>(sleuth,spring-cloud-starter-zipkin)  8484
+
+
+17-May-2019
+============
+JDBC(Java Database Connectivity) -> to get connect to db for sake of data(crud operations)
+
+JMS (Java Messaging Service) :to develop a java application to send and recevie messages 
+in synchronus and asynchronus way 
+
+Types of commmuncation
+=======================
+1.synchronus => Sender and receiver should be online (Phone calling) 
+2.asynchronus => Sender / receiver need not be online (SMS,Whatsapp,Email)
+
+
+MOM (Message Oriented Middlware) (JBoss,Oracle Weblogic,Active MQ,Rabbit MQ,IBM Websphere,MQ Series)
+
+sender-->MOM(broker)-->Receiver
+
+JMS is communication between java app and human
+Java Mail API--Human to Human
+
+Apache Kafka =>Producing messages =>Producer and Consumer supports ,open source ,Publisher to Subscriber doesnot support queue ,
+distributed and scalable 
+
+
+
+1.Point to Point (One to One) =>Queue 
+  
+  One message will have one consumer only
+  
+2.Publisher to Subscriber (One to Many) =>Topic
+
+   One message will have one/more consumer 
+msg from topics will be publicshed to multiple subscriber.
+
+  
+
+1.JMS in memory Active MQ
+    Producer ->
+	   JMSTemplate->
+	               ->Queue
+      	                   =>Consumer1
+						   =>Consumer2
+			   
+			 
+      
+
+2.JMS  stand alone Active MQ
+
+To start Active MQ
+c:\apache-activemq-5.15.8\bin>activemq start 
+
+Active MQ Web Console  :http://localhost:8161/
+  username :admin
+  password :admin
+  
+
+  
+ Apache Kafka
+=============
+Apache Kafka is an open-source stream-processing software platform developed by LinkedIn and donated to the Apache Software Foundation, written in Scala and Java. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feeds.
+
+
+Apache Kafka is a community distributed event streaming platform capable of handling trillions of events a day. Initially conceived as a messaging queue, Kafka is based on an abstraction of a distributed commit log.
+
+
+
+1. Producer 
+==========
+ An application that sends the messages(data or record ) to kafka Server
+
+
+Message :
+                  1.Small to medium sized piece of data
+                  2.It may have some meaning or some schema for us but for apache kafka It is simple array of bytes.
+
+
+
+2. Consumer
+                An application which reads the data from Kafka Server.
+
+
+                Producer1                             Consumer1
+				                 Kafka Server
+                Producer2 			                  Consumer2	
+
+3. Broker
+                   It is a Kafka Server.
+                   It's a just meaningful name given to kafka server
+                   Kafka Server acts as a broker between Producer and Consumer
+                   Producer and Consumer don't interact directly
+                   They use Kafka Server as a agent or broker to exchange the messages
+        
+4. Cluster
+            A group of computers sharing the workload for common purpose.
+            Kafka is a distrubuted system. so Cluster as same meaning as kafka.
+
+
+5. Topic
+
+                 Topic is a arbitary name for kafka stream
+
+
+6. Partitions
+                     The data stored in a topic is huge or it is beyond storage capacity of a single computer.
+                      In this case Broker may have challange to store this data.
+                      One of the solution is to break that data in to 2 or more parts and distrubute it to a multiple computers.
+                      Kafka is a distrubuted system that runs on cluster of computers.
+                      Kafka can break the topic in partitions and store one partition on one computer.  
+                      But how many partitions?
+                      How kafka will decide that whether it has do 100 or 10 partiotions.
+                      Kafka will no take any decision. We have to take this decision.
+                      
+
+
+7. Offset
+                      It is a sequence no of a message in a partition.This number will be assigned to message as soon as message arrives.
+                      This sequence will not change .it is immutable.Kafka stores the message in a sequence in which they arrives.The offset
+                       starts from zero.offsets are local to the partitions and not local to gloabal.
+					   
+		
+
+ Topic     
+         partition1     m-0,m-1,m-2
+		 partition2     m-0,m-1,m-2
+		 
+		 
+		 
+		 
+					   
+					   
+
+                         Global uniqueue idenetifier of a message.
+                                      Topic Name ->Partition Number->Offset =>using these three thins you can locate a message.
+ 
+
+8. Consumer groups
+                        A group of consumers acting as a single logical unit.
+
+                       Partioning and consumer group  is a tool for scalability.
+
+                       Maximum no of consumers in a group is total no of partitions in a topic.      
+
+                       Kafka doesn't allow more than 2 consumers to read data from one partition of the topic simultaneously.
+                       This restriction is necessary of double reading of records. 
+
+
+
+
+Apache ZooKeeper is an effort to develop and maintain an open-source server which enables highly reliable distributed coordination.
+
+
+What is ZooKeeper?
+
+ZooKeeper is used for managing and coordinating Kafka broker. ZooKeeper service is mainly used to notify producer and consumer about the presence of any new broker in the Kafka system or failure of the broker in the Kafka system. As per the notification received by the Zookeeper regarding presence or failure of the broker then pro-ducer and consumer takes decision and starts coordinating their task with some other broker.
+
+ 
+Apache Kafka Download  :
+===================
+https://kafka.apache.org/downloads  =>binary 
+
+
+To start Zookeeper
+==================
+c:\kafka_2.12-2.2.0\bin\windows>zookeeper-server-start.bat ..\..\config\zookeeper.properties
+
+
+To start a Kafka Server
+============================
+c:\kafka_2.12-2.2.0\bin\windows>kafka-server-start.bat ..\..\config\server.properties
+
+
+To create a topic
+==============
+
+C:\kafka_2.11-2.1.0\bin\windows>kafka-topics.bat --zookeeper localhost:2181 --create --topic MyFirstTopic --partitions 2 --replication-factor 1
+
+Created topic "MyFirstTopic".
+
+C:\kafka_2.11-2.1.0\bin\windows>
+
+
+To start a Console Producer
+==============================
+
+C:\kafka_2.11-2.1.0\bin\windows>kafka-console-producer.bat --broker-list localhost:9092 --topic MyFirstTopic
+>
+
+To start a Console Consumer
+==============================
+C:\kafka_2.11-2.1.0\bin\windows>kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic MyFirstTopic
+
+
+Client Side Load balancing (Clustering)  and  
+============================================================
+
+
+customer-service=>product-service=>order-service=>payment-service
+
+
+restfull api =>
+            RestTemplate 
+
+
+			
+Hystrix
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+Spring Boot Security
+=====================
+JAAS (Java Authentication and Authorization Service)
+
+1.Basic (Spring Boot1.x by default uses Basic Authentication)
+2.Digest
+3.Form  (Spring Boot2.x by default uses Form based Authentication)
+
+<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+
+A)In Memory
+B)Database Authentication (users,roles)
+C)OAuth2 
+
+
+
+
+
+
+Spring Cloud Netflix: Load Balancer with Ribbon/Feign
+=========================================================
+
+You can use Spring Cloud Netflix to provide client-side load balancing in calls to another microservice.
+
+The idea in this post is to show some concepts about load balancing, Ribbon and Feign, and step by step process for working with Ribbon and Feign.
+
+Load Balancing
+===============
+
+Load Balancing automatically distributes incoming application traffic between two or more computers. It enables you to achieve fault tolerance in your applications, seamlessly providing the required amount of load balancing capacity needed to route application traffic. Load balancing aims to optimize resource use, maximize throughput, minimize response time, and avoid overload of any single resource. Using multiple components with load balancing instead of a single component may increase reliability and availability through redundancy.
+
+
+===
+Ribbon: Load Balancer Without Eureka 
+====================================
+
+Ribbon is a client-side load balancer, which gives you a lot of control over the behavior of HTTP and TCP clients. Ribbon's Client component offers a good set of configuration options such as connection timeouts, retries, retry algorithm (exponential, bounded back off) etc. Ribbon comes built in with a pluggable and customizable Load Balancing component. 
+
+Some of the load balancing strategies offered are listed below:
+
+Simple Round Robin LB
+Weighted Response Time LB
+Zone Aware Round Robin LB
+Random LB
+
+Client-Side Load Balancing
+==========================
+
+An approach to load balancing is to deliver a list of server IPs to the client, and then to have client randomly select the IP from the list on each connection. It has been claimed that client-side random load balancing tends to provide better load distribution than round-robin DNS. With this approach, the method of delivery of lists of IPs to the client can vary, and may be implemented as a DNS list (delivered to all the clients without any round-robin), or via hardcoding it to the list. If a "smart client" is used, detecting that randomly selected server is down and connecting randomly again, it also provides fault tolerance.
+
+Ribbon provides the following features:
+=======================================
+Load balancing
+Fault tolerance
+Multiple protocols (HTTP, TCP, UDP) support in an asynchronous and reactive model
+Caching and batching
+
+
+
+Enabling Ribbon
+================
+Add Ribbon Dependency to pom.xml
+
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+    </dependency>
+
+
+
+
+Hystrix =>Circuit Broker
+
+While the circuit is open, Hystrix redirects calls to the method, and they're passed on to our specified fallback method. Spring Cloud Netflix Hystrix looks for any method annotated with the @HystrixCommand annotation, and wraps that method in a proxy connected to a circuit breaker so that Hystrix can monitor it.
+
+Netflix has created a library called Hystrix that implements the circuit breaker pattern. In a microservice architecture, it is common to have multiple layers of service calls,
+
+
+
+
+
+
+Assignements
+
+Create 2 microservices as Product and Order to perform CRUD operation using either Collection,MongoDB or oracle
+Also Register this microservices with eureka server 
+Add Zuul Proxy server for routing 
+
+
+
+
+
+
+
+
+
+
+
+
