@@ -1,0 +1,11 @@
+SCM & version control:
+login model  ---v2
+login model ---v3  v1  
+automatic versions git 
+central repository  backup  
+github
+ 
+continuous integration:
+integration build 
+compl buidl 
+maven ,ant,gradle
