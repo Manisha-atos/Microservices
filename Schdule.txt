@@ -1,0 +1,94 @@
+Day 1:
+MS MSA monolethic application 
+Admin -Client Architech
+3 ms hello greet and welcome  web,devtools,actu,spring admin clint
+1 adminservice --spring boot admin , code centrcic UI
+@EnableAdminServer
+
+Day 2: shared the configuration server and client
+2 ways o do 
+LFS
+git repository
+spring cloud config server
+spring cloud config client
+
+Day 3:service registry
+Eureka Server & Register MS Client 8761
+Zuul proxy Server-->Routing and load balancing
+	2 ways proxy
+	servicId
+	url pattern
+
+
+Day 4:
+zipkin Server--Error handling  --9041
+cistomer
+product
+RestTemplate -- call services
+Hystrix Server--Circuit Breaker Server
+
+Day 5:
+Messaging i JAVA
+JMS queue and topic
+12 factor app
+
+
+@HystricCommand(fallbackMethod=”defaultProductList”, commandProperties =    { @HystrixProperty(name=”execution.isolation.thread.timeoutInMilliSeconds”, value=”500”)
+}) 
+
+https://howtodoinjava.com/spring-cloud/spring-boot-ribbon-eureka/
+
+176 78  98  Microservices
+
+91 57 34  plsql 
+
+Rwd
+DB
+core java
+servlet jsp
+spring boot
+ms
+overview devops
+
+
+RWD	test name    responsive web design  
+assign 
+mettle
+
+
+RWD		
+Oracle SQL +Unix test name
+Core Java jdbc 
+Spring Core WebMVC Sprig Boot  
+Testing concept with selenium  
+ReatJS
+
+
+
+MicroServices
+DevopsBasic
+
+
+
+
+2021-05-25 12:10:41.703  INFO [customer-service,48795ad2090b41c7,48795ad2090b41c7,true] 2720 --- [nio-9098-exec-1] com.example.demo.CustomerController      : ###CustomerController : calling getAllCustomers###
+2021-05-25 12:10:51.384  INFO [customer-service,03afdfea2bf10026,03afdfea2bf10026,true] 2720 --- [nio-9098-exec-2] com.example.demo.CustomerController      : ###CustomerController : calling getAllProducts###
+2021-05-25 12:10:52.554 ERROR [customer-service,03afdfea2bf10026,03afdfea2bf10026,true]
+
+zipkin server---->customer /name /products ---> product service 
+
+
+
+
+
+
+2021-05-25 12:17:11.233  INFO
+[customer-service,477377bf11db69a4,477377bf11db69a4,true] 
+[product-service,477377bf11db69a4,8cf952d44dd6e5c6,true]
+As discussed prepaired the Plan. Please find below.
+Attaching the schedule PFA 
+@
+
+
+
+
