@@ -21,4 +21,6 @@ spec:
         - containerPort: 80
      - name: centos
         image: centos
+        ports:
+         - containerPort: 81
         
